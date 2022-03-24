@@ -1,24 +1,22 @@
-<app-home *ngIf="mode === 'home'"></app-home>
-
-<div class="container-fluid ps-md-0 bg-color" *ngIf="mode === 'login'">
+<div class="container-fluid ps-md-0 bg-color">
   <div class="container-fluid pad">
     <div class="row g-0">
       <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
       <div class="col-md-8 col-lg-6 grad">
-        <div class="d-flex align-items-center py-5">
+        <div class="login d-flex align-items-center py-4">
           <div class="container">
             <div class="row">
               <div class="col-md-9 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Welcome back!</h3>
-                <!-- Sign In Form -->
-                <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && submit()">
+                <h3 class="login-heading mb-4">Create New Account</h3>
+                <!-- Sign Up Form -->
+                <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && signUp()">
                   <!-- Email -->
                   <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" name="email" #email="ngModel"
-                      [(ngModel)]="loginData.email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required
+                      [(ngModel)]="signUpData.email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required
                       placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
-                    <div *ngIf="loginForm.submitted && email.errors || (email.touched && email.invalid)">
+                    <div *ngIf="signUpForm.submitted && email.errors || (email.touched && email.invalid)">
                       <div *ngIf="email.hasError('required')" style="color: red;">
                         Please Enter Your Email
                       </div>
@@ -30,10 +28,24 @@
                   <!-- Password -->
                   <div class="form-floating mb-3">
                     <input [type]="passType" class="form-control" id="floatingPassword" name="password"
-                      #password="ngModel" [(ngModel)]="loginData.password" maxlength="15" required placeholder="Password">
+                      #password="ngModel" [(ngModel)]="signUpData.password" maxlength="15" required
+                      placeholder="Password">
                     <label for="floatingPassword">Password</label>
-                    <div *ngIf="loginForm.submitted && password.errors || (password.touched && password.invalid)">
+                    <div *ngIf="signUpForm.submitted && password.errors || (password.touched && password.invalid)">
                       <div *ngIf="password.hasError('required')" style="color: red;">
+                        Please Enter Your Password
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Confirm Password -->
+                  <div class="form-floating mb-3">
+                    <input [type]="passType" class="form-control" id="floatingConfirmPassword" name="confirmPassword"
+                      #confirmPassword="ngModel" [(ngModel)]="signUpData.confirmPassword" maxlength="15" required
+                      placeholder="Confirm Password">
+                    <label for="floatingConfirmPassword">Confirm Password</label>
+                    <div
+                      *ngIf="signUpForm.submitted && confirmPassword.errors || (confirmPassword.touched && confirmPassword.invalid)">
+                      <div *ngIf="confirmPassword.hasError('required')" style="color: red;">
                         Please Enter Your Password
                       </div>
                     </div>
@@ -41,26 +53,23 @@
 
                   <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" (click)="showPass($event)" value=""
-                      id="rememberPasswordCheck">
-                    <label class="form-check-label" for="rememberPasswordCheck">
+                      id="PasswordCheck">
+                    <label class="form-check-label" for="PasswordCheck">
                       Show password
                     </label>
                   </div>
 
                   <div class="d-grid">
-                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign
-                      in</button>
-                    <div class="text-center">
-                      <a class="small" href="#">Forgot password?</a>
-                    </div>
+                    <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      type="submit">Continue</button>
                   </div>
                 </form>
 
                 <!-- Sign Up Form -->
                 <div class="d-grid mt-5">
-                  <p class="text-center">Don't have an account?</p>
+                  <p class="text-center">Already have an account?</p>
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="button"
-                    (click)="signUp()">Sign Up</button>
+                    (click)="goTosignIn()">Sign In</button>
                 </div>
               </div>
             </div>
@@ -69,8 +78,4 @@
       </div>
     </div>
   </div>
-
 </div>
-
-
-<app-signup *ngIf="mode === 'signup'"></app-signup>

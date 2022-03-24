@@ -1,0 +1,52 @@
+<kendo-appbar position="top" class="k-appbar-light appBar">
+
+  <kendo-appbar-section>
+    <img src="../../assets/horizontal-rectangle-1.jpg" alt="" class="logo">
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <button kendoButton class="toggle" icon="menu" fillMode="flat" (click)="drawer.toggle()"
+      [ngStyle]="{'margin-left': (drawerExpanded) ? '30px' : '15px'}"></button>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="actions">
+    <button kendoButton class="logout" icon="logout" fillMode="flat" (click)="open()">Logout</button>
+  </kendo-appbar-section>
+</kendo-appbar>
+
+<kendo-drawer-container class="drawer-container-height">
+  <kendo-drawer class="sideBar" #drawer [items]="items" mode="push" [(expanded)]="drawerExpanded"
+  [ngStyle]="{'flex-basis': (drawerExpanded) ? '240px' : '30px'}" [autoCollapse]="false" (select)="onSelect($event)" >
+    <ng-template kendoDrawerItemTemplate let-item>
+      <div class="k-level-{{ item.level }}">
+        <span class="k-icon {{ item.icon }}"></span>
+      </div>
+      {{ item.text }}
+
+      <span *ngIf="item.expanded && item.children" class="k-icon k-i-arrow-chevron-down"
+        style="margin-left: auto; line-height: inherit"></span>
+
+      <span *ngIf="!item.expanded && item.children" class="k-icon k-i-arrow-chevron-right"
+        style="margin-left: auto; line-height: inherit"></span>
+    </ng-template>
+  </kendo-drawer>
+
+  <kendo-drawer-content [ngStyle]="{'margin-left' : (drawerExpanded) ? '240px' : '5px'}" style="margin-top: 50px;" class="h-full k-drawer-content">
+    <app-content [selectedItem]="selected"></app-content>
+  </kendo-drawer-content>
+</kendo-drawer-container>
+
+
+<kendo-dialog title="Please confirm" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+  <p style="margin: 30px; text-align: center;">
+    Are you sure you want to logout?
+  </p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="close()">No</button>
+    <button kendoButton (click)="logout()" themeColor="primary">
+      Yes
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>

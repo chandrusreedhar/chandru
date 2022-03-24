@@ -1,5 +1,12 @@
 .bg-color{
-  background-image: url('../assets/login-user-interface.jpg');
+  background: linear-gradient(155deg, #db5b5b, #eae04b, #7be624, #24e6df, #3124e6, #e624df, #e62481, #ff0a0a);
+  background-size: 1600% 1600%;
+  animation: gradient 25s ease infinite;
+}
+@keyframes gradient {
+  0%{background-position:0% 35%}
+  50%{background-position:100% 66%}
+  100%{background-position:0% 35%}
 }
 .col-lg-6{
   background-color: aquamarine;
@@ -8,7 +15,7 @@
   padding: 50px;
 }
 .bg-image {
-  background-image: url('../assets/login-user.jpg');
+  background-image: url('../../assets/sign-in.webp');
   background-size: cover;
   background-position: center;
 }
