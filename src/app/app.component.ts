@@ -7,7 +7,7 @@ import { signUp } from './signup/signup.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   @ViewChild('loginForm') loginForm!: NgForm;

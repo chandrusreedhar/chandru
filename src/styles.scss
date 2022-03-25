@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+$secondary: #d8ecf1;
+$drawer-selected-gradient: linear-gradient(
+  0deg,
+  #1eff1a00 0%,
+  #101010 50%,
+  #10ff0000 100%
+);
+.k-drawer-item.k-state-selected{
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+  color: #ffffff;
+  background: $drawer-selected-gradient !important;
+}
+.sys-card-header {
+  background-color: #f7f7f7 !important;
+  padding: 0px 16px;
+  height: 2.75rem;
+  font-weight: 600;
+}
+.sys-card-body {
+  overflow-y: auto;
+  height: 488px;
+  padding: 10px;
+}
+.sys-card-footer {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  background-color: #f7f7f7;
+  height: 2.75rem;
+}

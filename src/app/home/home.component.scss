@@ -1,0 +1,81 @@
+.logo {
+  height: 35px;
+  width: 200px;
+  margin-left: 13px;
+}
+.toggle {
+  margin-top: 5px;
+  margin-left: 9px;
+}
+.appBar {
+  // background-image: linear-gradient(
+  //   to right top,
+  //   #54ec89,
+  //   #57e997,
+  //   #5de6a3,
+  //   #67e3ad,
+  //   #72dfb6,
+  //   #75e0bd,
+  //   #78e1c4,
+  //   #7de2ca,
+  //   #77e8d3,
+  //   #71efdc,
+  //   #69f5e6,
+  //   #5ffbf1
+  // );
+  background-color: #f7f7f7 !important;
+}
+.sideBar {
+  margin-top: 51px;
+  position: fixed;
+  height: 100%;
+  // background: linear-gradient(to right top, #54ec89,
+  // #57e997,
+  // #5de6a3,
+  // #67e3ad,
+  // #72dfb6,
+  // #75e0bd,
+  // #78e1c4,
+  // #7de2ca,
+  // #77e8d3,
+  // #71efdc,
+  // #69f5e6,
+  // #5ffbf1);
+  // background-size: 400% 400%;
+  // animation: gradient 5s ease infinite;
+  // background-image: linear-gradient(to left center, #54ec89, #57e997, #5de6a3, #67e3ad, #72dfb6, #75e0bd, #78e1c4, #7de2ca, #77e8d3, #71efdc, #69f5e6, #5ffbf1);
+  background-color: #ebebeb69;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.logout {
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.drawer-container-height {
+  height: calc(100% - 40px) !important;
+}
+
+.h-full {
+  height: 100%;
+}
+.k-appbar-light {
+  color: black;
+  background-color: #ebebeb;
+  position: fixed;
+  width: 100%;
+}
+.k-level-1 {
+  padding-left: 19px;
+}
+

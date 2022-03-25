@@ -6,7 +6,7 @@ import { signUp } from './signup.model';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   @ViewChild('signUpForm') signUpForm!: NgForm;
@@ -32,12 +32,15 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  hide(){
+    this.mode = 'home';
+  }
   signUp(){
     if(this.signUpData.password === this.signUpData.confirmPassword){
       this.signUpDataList.push(this.signUpData);
       this.signUpData = new signUp();
       localStorage.setItem(this.signUpData.email, JSON.stringify(this.signUpDataList));
-      this.ser.viewMode.next({viewMode: 'home', Data: this.signUpDataList});
+      this.ser.viewMode.next({viewMode: 'home'});
     }
     else{
       alert('Password and Confirm Password are mismatching');
